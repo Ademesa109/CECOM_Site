@@ -21,4 +21,4 @@ jobs:
           app-name: 'CECOM2'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_42B4536AE61D4163B411EB0CE70236E6 }}
-          path: '.'
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/SampleWebApplication/'
