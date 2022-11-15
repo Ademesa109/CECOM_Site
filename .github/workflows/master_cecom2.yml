@@ -16,9 +16,9 @@ jobs:
     steps:
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
-        uses: ./
+        uses: azure/webapps-deploy@v2
         with:
           app-name: 'CECOM2'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_42B4536AE61D4163B411EB0CE70236E6 }}
-          package: .
+          path: '.'
