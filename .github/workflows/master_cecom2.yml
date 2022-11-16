@@ -9,11 +9,12 @@ on:
 jobs:
   deploy:
     runs-on: windows-latest
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
+      # checkout the repo
+      - name: 'Checkout Github Action'
+        uses: actions/checkout@master
+        
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -21,4 +22,3 @@ jobs:
           app-name: 'CECOM2'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_42B4536AE61D4163B411EB0CE70236E6 }}
-          path: './'
